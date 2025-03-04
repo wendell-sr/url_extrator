@@ -32,12 +32,11 @@ URL_EXTRACTOR/
 ## 4. Funcionalidades Implementadas
 - **Coleta e Categorização de URLs**: A partir de uma URL inicial, o sistema extrai automaticamente todos os links internos, aplicando uma categorização que agrupa os links por tópicos e seções para facilitar a navegação e análise.
 - **Filtragem de URLs**: Implementada filtragem avançada que exclui links duplicados e irrelevantes, garantindo dados limpos e precisos.
-- **Respeito ao `robots.txt`**: O sistema segue as regras específicas de acesso definidas por cada site, garantindo extração ética e responsável.
 - **Exportação Estruturada dos Dados**: Geração automática de arquivos (JSON, CSV, etc.) com todas as informações extraídas e categorizadas.
 - **Multithreading e Processamento Assíncrono**: Incorporadas técnicas para acelerar a coleta e processamento das URLs mesmo em grandes volumes de dados, otimizando performance.
 - **Integração com Google LM Notebook**: Possibilidade de exportar imediatamente os dados para análise e treinamento em ambientes de machine learning.
 - **API com FastAPI**: API REST implementada para consulta remota dos dados extraídos. A API já está integrada e pode ser acessada para recuperação e análise dos dados.
-- **Interface Gráfica**: Uma interface web simples foi implementada para facilitar a interação do usuário, permitindo a entrada da URL principal e a visualização dos resultados de forma intuitiva.
+- **Interface Gráfica**: Uma interface gráfica foi implementada usando Tkinter para facilitar a interação do usuário, permitindo a entrada da URL principal e a visualização dos resultados de forma intuitiva.
 - **Testes Automatizados e Tratamento de Erros**: A suíte de testes abrange diversos cenários de extração e filtragem, com tratamento robusto de erros e logs detalhados para monitoramento do sistema.
 
 ## 5. Tecnologias Utilizadas
@@ -61,5 +60,34 @@ URL_EXTRACTOR/
 5. Os dados podem ser automaticamente enviados para ferramentas externas, como o Google LM Notebook.
 6. A API permite consultas externas e análises remotas.
 
-## 7. Conclusão
+## 7. Requisitos
+
+Para configurar e utilizar o aplicativo, é necessário ter a ferramenta UV instalada.
+
+## 8. Instruções de Uso
+
+Para executar o projeto, utilize os seguintes comandos:
+
+```sh
+uv run main.py
+```
+
+### Opções:
+
+- `--url URL`: URL para extrair links
+- `--api`: Executa o servidor da API
+- `--gui`: Executa a interface gráfica
+
+```sh
+usage: main.py [-h] [--url URL] [--api] [--gui]
+
+Extrator de URLs
+
+options:
+  -h, --help  show this help message and exit
+  --url URL   URL para extrair links
+  --api       Executa o servidor da API
+  --gui       Executa a interface gráfica
+```
+
 Com as melhorias já implementadas, o projeto oferece uma solução completa e robusta para a extração e organização de URLs. A integração com ferramentas externas, o processamento otimizado e a interface amigável garantem que o sistema atenda de forma eficiente a diferentes demandas, desde a análise de grandes volumes de dados até a consulta remota via API.

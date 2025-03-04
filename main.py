@@ -9,6 +9,7 @@ def main_cli():
     parser = argparse.ArgumentParser(description="Extrator de URLs")
     parser.add_argument("--url", type=str, help="URL para extrair links")
     parser.add_argument("--api", action="store_true", help="Executa o servidor da API")
+    parser.add_argument("--gui", action="store_true", help="Executa a interface gráfica")
     args = parser.parse_args()
 
     if args.api:
@@ -20,6 +21,12 @@ def main_cli():
         with open(output_file, "w") as f:
             json.dump(result, f, indent=4)
         print(f"Extração concluída. Resultados salvos em {output_file}")
+    elif args.gui:
+        from src.gui import URLExtractorApp
+        import tkinter as tk
+        root = tk.Tk()
+        app = URLExtractorApp(root)
+        root.mainloop()
     else:
         parser.print_help()
 
